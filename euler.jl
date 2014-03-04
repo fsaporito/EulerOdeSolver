@@ -1,3 +1,4 @@
+# Step Calculator For The Selected Interval
 function stepCalculator (first::FloatingPoint, last::FloatingPoint)
 
 	# Step calculation
@@ -8,10 +9,11 @@ function stepCalculator (first::FloatingPoint, last::FloatingPoint)
 end
 
 
+# Explicit Euler Method For First Order Ordinary Differential Equations
 function eulerExplicit {T} (F::Function, tspan::AbstractVector, y0::AbstractVector{T})
 
 	tfirst = tspan[1] # First Interval's Value
-    tlast = tspan[end] # Last Interval's Value
+	tlast = tspan[end] # Last Interval's Value
 	
 	h = stepCalculator (tfirst, tlast) #Step Calculation
 		
@@ -29,9 +31,13 @@ function eulerExplicit {T} (F::Function, tspan::AbstractVector, y0::AbstractVect
 	Yk = y0 # Starting Point	
 	
 	while Tk != tlast
-		Yk1 = Yk + h*F(Tk, Yk) #Explicit Euler Calculation
+	
+		Yk1 = Yk + h*F(Tk, Yk) # Explicit Euler Calculation
+	
 		Tk = Tk + h # New Tk's Value Calculation
-		Yk = Yk1 #New Yk's Value Calculation
+	
+		Yk = Yk1 # New Yk's Value Calculation
+	
 	end
 	
 	tout = Tk - h # Last Time Value
