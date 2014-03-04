@@ -1,4 +1,5 @@
 # Step Calculator For The Selected Interval
+# Basic stepCalculation, to be improved with a better way to find the step
 function stepCalculator (first::FloatingPoint, last::FloatingPoint)
 
 	# Step calculation
@@ -22,6 +23,7 @@ function eulerExplicit {T} (F::Function, tspan::AbstractVector, y0::AbstractVect
 end
 
 
+# Explicit Euler Method where the user defines his own step value
 function eulerExplicit {T} (F::Function, tspan::AbstractVector, y0::AbstractVector{T}, h::FloatingPoint)
 
 	tlast = tspan[end] # Last Interval's Value
